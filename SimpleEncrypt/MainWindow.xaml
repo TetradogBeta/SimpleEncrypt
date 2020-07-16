@@ -1,0 +1,41 @@
+﻿<Window x:Class="SimpleEncrypt.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SimpleEncrypt"
+        xmlns:wpf="clr-namespace:Gabriel.Cat.Wpf;assembly=Gabriel.Cat.S.Wpf"
+        mc:Ignorable="d"
+        Title="Simple Encrypt" Height="450" Width="800" KeyDown="Window_KeyDown">
+    <TabControl>
+        <TabItem Header="Keys">
+            <local:KeyManager x:Name="keyManager" KeySelected="keyManager_KeySelected"/>
+        </TabItem>
+        <TabItem Header="Texto">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <wpf:RicoTextBox x:Name="txtOrigen" ToolTip="Origen" AcceptsReturn="True" AllowDrop="True" PreviewDragOver="TextPreviewDragOver" Drop="txtOrigen_Drop" />
+                <TextBox x:Name="txtDestino" ToolTip="Destino"  AcceptsReturn="True" TextWrapping="Wrap" AllowDrop="True" PreviewDragOver="TextPreviewDragOver" Drop="txtDestino_Drop" Grid.Column="1" />
+                <Button x:Name="btnEncrypt" Content="Encrypt" Grid.Row="1" Click="btnEncrypt_Click"/>
+                <Button x:Name="btnDecrypt" Content="Decrypt" Grid.Column="1" Grid.Row="1" Click="btnDecrypt_Click"/>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Archivos">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <local:EncryptDecryptFile x:Name="encryptFile" EncryptOrDecrypt="True"/>
+                <local:EncryptDecryptFile x:Name="decryptFile" EncryptOrDecrypt="False" Grid.Row="1"/>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>

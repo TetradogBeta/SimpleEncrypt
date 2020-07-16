@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>encrypt.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Gabriel.Cat.S.Binaris\Gabriel.Cat.S.Binaris.csproj" />
+    <ProjectReference Include="..\..\Gabriel.Cat.S.Seguretat\Gabriel.Cat.S.Seguretat\Gabriel.Cat.S.Seguretat.csproj" />
+    <ProjectReference Include="..\..\Gabriel.Cat.S.Utilitats\Gabriel.Cat.S.Utilitats\Gabriel.Cat.S.Utilitats.csproj" />
+    <ProjectReference Include="..\..\Gabriel.Cat.Wpf\Gabriel.Cat.S.Wpf\Gabriel.Cat.S.Wpf.csproj" />
+  </ItemGroup>
+
+</Project>
