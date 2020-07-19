@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SimpleEncrypt"
         xmlns:wpf="clr-namespace:Gabriel.Cat.Wpf;assembly=Gabriel.Cat.S.Wpf"
         mc:Ignorable="d"
-        Title="Simple Encrypt" Height="450" Width="800" KeyDown="Window_KeyDown">
+        Title="Simple Encrypt V2.5" Height="450" Width="800" KeyDown="Window_KeyDown">
     <TabControl>
         <TabItem Header="Keys">
             <local:KeyManager x:Name="keyManager" KeySelected="keyManager_KeySelected"/>

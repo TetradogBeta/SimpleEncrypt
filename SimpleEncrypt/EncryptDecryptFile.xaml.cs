@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using Gabriel.Cat.S.Extension;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -56,6 +57,21 @@ namespace SimpleEncrypt
 
             MessageBox.Show("Hecho");
 
+        }
+
+        private void UserControl_PreviewDragOver(object sender, DragEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void UserControl_Drop(object sender, DragEventArgs e)
+        {
+            string path= e.Data.GetFilePath();
+            if (path != default)
+            {
+                txtUrlOrigen.Text = path;
+                txtUrlDestino.Text = path + ".bin";
+            }
         }
     }
 }

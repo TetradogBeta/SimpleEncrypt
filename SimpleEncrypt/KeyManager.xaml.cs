@@ -43,7 +43,7 @@ namespace SimpleEncrypt
                 {
                     keyToAdd =new KeyName(txtNameKey.Text, Key.GetKey(100));
                     keyToAdd.Save(KeysFolder);
-                    KeysDic.Add(keyToAdd.Name, keyToAdd);
+                    KeysDic.Add(keyToAdd.UniqueName, keyToAdd);
                     lstKeys.Items.Add(keyToAdd);                  
                     txtNameKey.Text = "";
                     
@@ -77,7 +77,7 @@ namespace SimpleEncrypt
                 {
                     aux = new KeyName(path);
                     lstKeys.Items.Add(aux);
-                    KeysDic.Add(aux.Name, aux);
+                    KeysDic.Add(aux.UniqueName, aux);
                 }
                 if (lstKeys.Items.Count > 0)
                     lstKeys.SelectedIndex = 0;
@@ -110,13 +110,16 @@ namespace SimpleEncrypt
         public KeyName(string path)
         {
             Name = Path.GetFileNameWithoutExtension(path);
+            UniqueName = Path.GetFileName(path);
             Key = (Key)KeyBin.GetObject(File.ReadAllBytes(path));
         }
         public KeyName(string name,Key key)
         {
             Name = name;
+            UniqueName = Name;
             Key = key;
         }
+        public string UniqueName { get; set; }
         public string Name { get; set; }
         public Key Key { get; set; }
         public void Save(string folder)
